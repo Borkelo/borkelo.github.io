@@ -1,5 +1,6 @@
 var canvas = document.getElementById('myCanvas');
 var ctx = canvas.getContext('2d');
+Console.Log(canvas.width);
 
 var x = 50;
 var y = 50;
