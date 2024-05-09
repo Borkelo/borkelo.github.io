@@ -1,5 +1,10 @@
 var canvas = document.getElementById('myCanvas');
 var ctx = canvas.getContext('2d');
+
+ctx.webkitImageSmoothingEnabled = false;
+ctx.mozImageSmoothingEnabled = false;
+ctx.imageSmoothingEnabled = false;
+
 console.log(canvas.width);
 
 var x = 50;
