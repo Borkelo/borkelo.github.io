@@ -97,7 +97,6 @@ setInterval(gameLoop, 75);
 
 function gameLoop()
 {
-  console.log("loop");
   for(const tile of aliveTiles){
     checkTile(tile);
   }
@@ -120,7 +119,6 @@ function gameLoop()
   }
 
   changedTiles = [];
-  console.log(my2DArray[0][0].isAlive)
 }
 
 function checkTile(tile)
