@@ -1,7 +1,11 @@
 var canvas = document.getElementById('myCanvas');
 var ctx = canvas.getContext('2d');
 
-ctx.imageSmoothingEnabled = false;
+ctx.imageSmoothingEnabled       = false;
+ctx.webkitImageSmoothingEnabled = false;
+ctx.mozImageSmoothingEnabled    = false;
+ctx.msImageSmoothingEnabled     = false;
+ctx.oImageSmoothingEnabled      = false;
 
 console.log(canvas.width);
 
