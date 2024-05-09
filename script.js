@@ -2,7 +2,7 @@ var canvas = document.getElementById('myCanvas');
 var ctx = canvas.getContext('2d');
 
 
-const my2DArray = [];
+const tileArray = [];
 const columns = canvas.width / 10;
 const rows = canvas.height / 10;
 
@@ -28,47 +28,47 @@ setInterval(gameLoop, 75);
 
 function setup() {
     for (let i = 0; i < columns; i++) {
-        my2DArray[i] = [];
+        tileArray[i] = [];
         for (let j = 0; j < rows; j++) {
-            my2DArray[i][j] = new Tile(i, j, Math.random() < 0.5);
-            tiles.push(my2DArray[i][j]);
-            if (my2DArray[i][j].isAlive) {
+            tileArray[i][j] = new Tile(i, j, Math.random() < 0.5);
+            tiles.push(tileArray[i][j]);
+            if (tileArray[i][j].isAlive) {
                 drawPixel(i, j);
-                aliveTiles.push(my2DArray[i][j]);
+                aliveTiles.push(tileArray[i][j]);
             }
         }
     }
     for (let i = 0; i < columns; i++) {
         for (let j = 0; j < rows; j++) {
             if (i - 1 >= 0) {
-                my2DArray[i][j].neighbors.push(my2DArray[i - 1][j]);
+                tileArray[i][j].neighbors.push(tileArray[i - 1][j]);
 
                 if (j - 1 >= 0) {
-                    my2DArray[i][j].neighbors.push(my2DArray[i - 1][j - 1]);
+                    tileArray[i][j].neighbors.push(tileArray[i - 1][j - 1]);
                 }
 
                 if (j + 1 < rows) {
-                    my2DArray[i][j].neighbors.push(my2DArray[i - 1][j + 1]);
+                    tileArray[i][j].neighbors.push(tileArray[i - 1][j + 1]);
                 }
 
             }
             if (i + 1 < columns) {
-                my2DArray[i][j].neighbors.push(my2DArray[i + 1][j]);
+                tileArray[i][j].neighbors.push(tileArray[i + 1][j]);
 
                 if (j - 1 >= 0) {
-                    my2DArray[i][j].neighbors.push(my2DArray[i + 1][j - 1]);
+                    tileArray[i][j].neighbors.push(tileArray[i + 1][j - 1]);
                 }
 
                 if (j + 1 < rows) {
-                    my2DArray[i][j].neighbors.push(my2DArray[i + 1][j + 1]);
+                    tileArray[i][j].neighbors.push(tileArray[i + 1][j + 1]);
                 }
 
             }
             if (j + 1 < rows) {
-                my2DArray[i][j].neighbors.push(my2DArray[i][j + 1]);
+                tileArray[i][j].neighbors.push(tileArray[i][j + 1]);
             }
             if (j - 1 >= 0) {
-                my2DArray[i][j].neighbors.push(my2DArray[i][j - 1]);
+                tileArray[i][j].neighbors.push(tileArray[i][j - 1]);
             }
 
         }
