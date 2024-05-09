@@ -14,6 +14,12 @@ ctx.fillRect(x, y, pixelWidth, pixelHeight);
 
 disableSmoothing();
 
+while(true)
+{
+  disableSmoothing();
+}
+  
+
 function disableSmoothing()
 {
   ctx.imageSmoothingEnabled       = false;
