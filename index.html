@@ -1,15 +1,35 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Muck</title>
-    </head>
-    
-    <body>
-        <h1 class="title">Muck</h1>      
-    </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canvas Example</title>
+  <style>
+    canvas {
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="myCanvas" width="400" height="400"></canvas>
 
+  <script>
+    // Get the canvas element
+    var canvas = document.getElementById('myCanvas');
+    // Get the drawing context
+    var ctx = canvas.getContext('2d');
+
+    // Draw a rectangle
+    ctx.fillStyle = 'red'; // Set fill color
+    ctx.fillRect(50, 50, 100, 100); // Draw a rectangle
+
+    // Draw a line
+    ctx.beginPath();
+    ctx.moveTo(200, 200); // Move to starting point
+    ctx.lineTo(300, 300); // Draw a line to end point
+    ctx.strokeStyle = 'blue'; // Set stroke color
+    ctx.lineWidth = 2; // Set line width
+    ctx.stroke(); // Draw the line
+  </script>
+</body>
 </html>
-
-
