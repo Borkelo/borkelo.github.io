@@ -4,32 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Canvas Example</title>
-  <style>
-    canvas {
-      border: 1px solid black;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css"> <!-- Linking to external CSS file -->
 </head>
 <body>
-  <canvas id="myCanvas" width="400" height="400"></canvas>
-
+  <canvas id="myCanvas" width="800" height="600"></canvas> <!-- Set fixed width and height -->
+  
   <script>
-    // Get the canvas element
     var canvas = document.getElementById('myCanvas');
-    // Get the drawing context
     var ctx = canvas.getContext('2d');
 
-    // Draw a rectangle
-    ctx.fillStyle = 'red'; // Set fill color
-    ctx.fillRect(50, 50, 100, 100); // Draw a rectangle
-
-    // Draw a line
-    ctx.beginPath();
-    ctx.moveTo(200, 200); // Move to starting point
-    ctx.lineTo(300, 300); // Draw a line to end point
-    ctx.strokeStyle = 'blue'; // Set stroke color
-    ctx.lineWidth = 2; // Set line width
-    ctx.stroke(); // Draw the line
+    // Drawing code goes here
+    // For example:
+    // ctx.fillStyle = 'red';
+    // ctx.fillRect(0, 0, canvas.width, canvas.height);
   </script>
 </body>
 </html>
