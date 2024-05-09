@@ -4,21 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Canvas Example</title>
-  <link rel="stylesheet" href="styles.css"> <!-- Linking to external CSS file -->
+  <link rel="stylesheet" href="styles.css"> 
 </head>
 <body>
-  <canvas id="myCanvas" width="800" height="600"></canvas> <!-- Set fixed width and height -->
-  
-  <script>
-    var canvas = document.getElementById('myCanvas');
-    var ctx = canvas.getContext('2d');
-
-    var x = 50;
-    var y = 50;
-    var pixelWidth = 15;
-    var pixelHeight = 15;
-    ctx.fillStyle = 'black';
-    ctx.fillRect(x, y, pixelWidth, pixelHeight);
-  </script>
+  <canvas id="myCanvas" width="800" height="600"></canvas> 
+  <script src="script.js"></script>
 </body>
 </html>
