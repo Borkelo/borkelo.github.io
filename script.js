@@ -4,7 +4,7 @@ var ctx = canvas.getContext('2d');
 console.log(canvas.width);
 
 drawPixel(0,0);
-drawPixel(0,1);
+drawPixel(1,1);
 
 function drawPixel(x, y)
 {
