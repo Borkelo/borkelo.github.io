@@ -1,5 +1,6 @@
 var canvas = document.getElementById('myCanvas');
 var ctx = canvas.getContext('2d');
+var slider = document.getElementById('mySlider');
 
 
 const tileArray = [];
@@ -24,7 +25,12 @@ class Tile {
 }
 
 setup();
-setInterval(gameLoop, 75);
+var interval = setInterval(gameLoop, 75);
+
+slider.addEventListener('input', function() {
+    clearInterval(interval);
+    interval = setInterval(gameLoop, slider.value)
+  });
 
 function setup() {
     for (let i = 0; i < columns; i++) {
