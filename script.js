@@ -34,7 +34,7 @@ function setup() {
     for (let i = 0; i < columns; i++) {
         tileArray[i] = [];
         for (let j = 0; j < rows; j++) {
-            tileArray[i][j] = new Tile(i, j, Math.random() < 0.5);
+            tileArray[i][j] = new Tile(i, j, Math.random() < 0.20);
             tiles.push(tileArray[i][j]);
             if (tileArray[i][j].isAlive) {
                 drawPixel(i, j, liveTileColor);
