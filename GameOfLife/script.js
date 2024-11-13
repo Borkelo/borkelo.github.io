@@ -1,6 +1,6 @@
-var canvas = document.getElementById('myCanvas');
-var ctx = canvas.getContext('2d');
-var slider = document.getElementById('mySlider');
+const canvas = document.getElementById('myCanvas');
+const ctx = canvas.getContext('2d');
+const slider = document.getElementById('mySlider');
 
 
 const tileArray = [];
@@ -109,13 +109,11 @@ function gameLoop() {
             aliveTiles.splice(aliveTiles.indexOf(tile), 1);
             tile.isAlive = false;
             drawPixel(tile.x, tile.y, '#0d0d0d');
-
         }
     }
+
     for (const tile of tiles) {
         tile.isChecked = false;
-        if(tile.isAlive)
-            drawPixel(tile.x, tile.y, liveTileColor);
     }
 
     changedTiles = [];
