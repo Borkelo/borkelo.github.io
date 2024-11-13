@@ -166,7 +166,6 @@ function colorLoop(){
     currentColor.b += colorIncrement.b;
 
     liveTileColor = rgbToHex(Math.round(currentColor.r), Math.round(currentColor.g), Math.round(currentColor.b));
-    console.log(liveTileColor);
 }
 
 function setNextColorIndex(){
