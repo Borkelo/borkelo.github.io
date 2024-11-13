@@ -7,8 +7,21 @@ const tileArray = [];
 const columns = canvas.width / 10;
 const rows = canvas.height / 10;
 
-const colors = ['#ed2626', '#faf32a', '#18e815', '#20e6df', '#8d32e3', '#ed34a6']
-var liveTileColor = colors[0];
+const colors = [
+    "#4A90E2", // Soft blue
+    "#50E3C2", // Teal green
+    "#B8E986", // Light green
+    "#7ED321", // Lime green
+    "#D0021B", // Deep red
+    "#F5A623", // Soft orange
+    "#BD10E0", // Soft purple
+    "#9013FE", // Deep purple
+    "#F8E71C", // Soft yellow
+    "#FF6F61", // Coral pink
+    "#417505", // Dark olive
+];
+
+const liveTileColor = colors[Math.floor(Math.random()*colors.length)];
 var nextColorIndex = 1;
 const colorTransitionTime = 5000; // 5 seconds
 const colorIntervalTime = 50; 
@@ -42,6 +55,7 @@ function setup() {
             }
         }
     }
+
     for (let i = 0; i < columns; i++) {
         for (let j = 0; j < rows; j++) {
             if (i - 1 >= 0) {
@@ -132,51 +146,6 @@ function checkTile(tile) {
     }
 }
 
-function componentToHex(c) {
-    var hex = c.toString(16);
-    return hex.length == 1 ? "0" + hex : hex;
-  }
-  
-
-function hexToRgb(hex) {
-    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-    return result ? {
-      r: parseInt(result[1], 16),
-      g: parseInt(result[2], 16),
-      b: parseInt(result[3], 16)
-    } : null;
-  }
-
-function rgbToHex(r, g, b) {
-    return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
-}
-
-function colorLoop(){
-    var currentColor = hexToRgb(liveTileColor);
-    var targetColor = hexToRgb(colors[nextColorIndex]);
-
-    var colorIncrement = {
-        r: (targetColor.r - currentColor.r) / (colorTransitionTime / colorIntervalTime),
-        g: (targetColor.g - currentColor.g) / (colorTransitionTime / colorIntervalTime),
-        b: (targetColor.b - currentColor.b) / (colorTransitionTime / colorIntervalTime)
-    };
-
-    currentColor.r += colorIncrement.r;
-    currentColor.g += colorIncrement.g;
-    currentColor.b += colorIncrement.b;
-
-    liveTileColor = rgbToHex(Math.round(currentColor.r), Math.round(currentColor.g), Math.round(currentColor.b));
-}
-
-function setNextColorIndex(){
-    if(nextColorIndex == colors.length - 1){
-        nextColorIndex = 0;
-    }
-    else{
-        nextColorIndex++;
-    }
-}
-
 function drawPixel(x, y, color) {
     ctx.fillStyle = color;
     ctx.fillRect(x * 10, y * 10, 10, 10);
@@ -184,8 +153,6 @@ function drawPixel(x, y, color) {
 
 setup();
 var interval = setInterval(gameLoop, slider.value);
-setInterval(colorLoop, colorIntervalTime);
-setInterval(setNextColorIndex, colorTransitionTime);
 
 slider.addEventListener('input', function() {
     clearInterval(interval);
