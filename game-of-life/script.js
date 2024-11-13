@@ -22,13 +22,13 @@ const colors = [
 ];
 
 const liveTileColor = colors[Math.floor(Math.random()*colors.length)];
-var nextColorIndex = 1;
+let nextColorIndex = 1;
 const colorTransitionTime = 5000; // 5 seconds
 const colorIntervalTime = 50; 
 
-var tiles = [];
-var aliveTiles = [];
-var changedTiles = [];
+let tiles = [];
+let aliveTiles = [];
+let changedTiles = [];
 
 console.log(canvas.width);
 console.log(canvas.height);
@@ -150,7 +150,7 @@ function drawPixel(x, y, color) {
 }
 
 setup();
-var interval = setInterval(gameLoop, parseInt(slider.max) - slider.value);
+let interval = setInterval(gameLoop, parseInt(slider.max) - slider.value);
 
 slider.addEventListener('input', function() {
     clearInterval(interval);
