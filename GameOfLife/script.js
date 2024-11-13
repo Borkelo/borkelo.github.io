@@ -152,9 +152,9 @@ function drawPixel(x, y, color) {
 }
 
 setup();
-var interval = setInterval(gameLoop, slider.value);
+var interval = setInterval(gameLoop, parseInt(slider.max) - slider.value);
 
 slider.addEventListener('input', function() {
     clearInterval(interval);
-    interval = setInterval(gameLoop, slider.value)
-  });
+    interval = setInterval(gameLoop, parseInt(slider.max) - slider.value)
+});
