@@ -2,7 +2,8 @@ body{
     background-color: #212121;
     color: white;
     font-family: "Ubuntu Mono", monospace;
-    margin: 0px;   
+    margin: 0;
+    padding: 0;   
 }
 
 h1{
