@@ -31,7 +31,7 @@ h1 {
     flex-wrap: wrap;         
     justify-content: center;
     gap: 30px;             
-    max-width: 1000px;     
+    max-width: 1200px;     
     padding: 0 20px;   
     margin: 0 auto;   
 }
@@ -48,7 +48,7 @@ h1 {
     text-align: center;     
     background-size: cover;
     background-position: center center; 
-    transition: transform 0.3s ease;  
+    transition: transform 0.1s ease;  
 }
 
 .page:hover {
