@@ -1,15 +1,12 @@
 const fish = document.getElementById("fish");
-let targetX = 0, targetY = 0;
+let targetX = 1000, targetY = 1000;
 let currentX = 0, currentY = 0;
 const speed = 5;
+const minDistance = 10;
 
 document.addEventListener("mousemove", (e) => {
     targetX = e.clientX - fish.offsetWidth / 2;
     targetY = e.clientY - fish.offsetHeight / 2;
-});
-
-fish.addEventListener("mouseenter", () =>{
-    window.location.href ="../"
 });
 
 function animate(){
@@ -17,6 +14,10 @@ function animate(){
     let dy = targetY - currentY;
     
     let distance = Math.sqrt(dx * dx + dy * dy); 
+
+    if(distance < minDistance){
+        window.location.href ="../"
+    }
 
     if (distance < speed) {
         currentX = targetX;
