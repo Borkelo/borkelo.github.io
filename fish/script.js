@@ -3,6 +3,7 @@ let targetX = 1000, targetY = 1000;
 let currentX = 0, currentY = 0;
 const speed = 5;
 const minDistance = 10;
+let lost = false;
 
 document.addEventListener("mousemove", (e) => {
     targetX = e.clientX - fish.offsetWidth / 2;
@@ -12,6 +13,11 @@ document.addEventListener("mousemove", (e) => {
 document.addEventListener("mousemove", checkDistance)
 
 function checkDistance(e){
+
+    if(lost == true){
+        return;
+    }
+
     let fishRect = fish.getBoundingClientRect();
     let mouseX = e.clientX;
     let mouseY = e.clientY;
@@ -19,6 +25,7 @@ function checkDistance(e){
     if (mouseX < fishRect.left && mouseX > fishRect.right &&
         mouseY < fishRect.top && mouseY > fishRect.bottom) {
             window.location.href = "../";
+            lost = true;
     } 
 }
 
