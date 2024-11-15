@@ -1,0 +1,10 @@
+body{
+    background-color: rgb(40, 74, 154);
+}
+
+#fish{
+    position: absolute;
+    transform-origin: center center;
+    width: 150px;
+    transition: transform 0.05s;
+}
