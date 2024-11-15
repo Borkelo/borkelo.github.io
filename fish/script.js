@@ -9,6 +9,19 @@ document.addEventListener("mousemove", (e) => {
     targetY = e.clientY - fish.offsetHeight / 2;
 });
 
+document.addEventListener("mousemove", checkDistance)
+
+function checkDistance(e){
+    let fishRect = fish.getBoundingClientRect();
+    let mouseX = e.clientX;
+    let mouseY = e.clientY;
+
+    if (mouseX < fishRect.left && mouseX > fishRect.right &&
+        mouseY < fishRect.top && mouseY > fishRect.bottom) {
+            window.location.href = "../";
+    } 
+}
+
 function animate(){
     let dx = targetX - currentX;
     let dy = targetY - currentY;
