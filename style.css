@@ -2,6 +2,7 @@ html, body{
     margin: 0;
     padding: 0;
     height: 100%;
+    width: 100%;
 }
 
 body {
@@ -21,10 +22,10 @@ a {
 
 h1 {
     font-size: 50px;
-    margin: 40px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 40px auto;
+    text-align: center;
     font-weight: 400;
+    line-height: 1.2;
 }
 
 .pages {
