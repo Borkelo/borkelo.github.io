@@ -1,0 +1,13 @@
+body{
+    background-color: #212121;
+    color: white;
+    font-family: "Ubuntu Mono", monospace;
+    margin: 100px 20px;
+    padding: 0;   
+}
+
+p{
+    font-size: 25px;
+    margin: 0px;
+}
+
