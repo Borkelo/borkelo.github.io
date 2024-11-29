@@ -12,14 +12,21 @@ window.onload = () => {
     // Initialize the SoundCloud Widget API
     const widget = SC.Widget(iframe);
 
+    // Detect the Web Audio API context (used for resuming)
+    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+
     // Attach a click event to the play button
     playButton.addEventListener('click', () => {
-        widget.play();
+        // Resume the AudioContext on the first user interaction
+        audioContext.resume().then(() => {
+            // Start playback after the context has been resumed
+            widget.play();
 
-        // Stop playback after 5 seconds
-        setTimeout(() => {
-            widget.pause();
-        }, 5000);
+            // Stop playback after 5 seconds
+            setTimeout(() => {
+                widget.pause();
+            }, 5000);
+        });
     });
 
     // Handle errors (e.g., invalid track URL)
