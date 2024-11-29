@@ -4,6 +4,7 @@ let player;
 function onYouTubeIframeAPIReady() {
     console.log("YouTube API is ready!");
 
+    // Create the YouTube player inside the div with id 'player'
     player = new YT.Player('player', {
         height: '1', // Hidden player size
         width: '1',
