@@ -1,24 +1,31 @@
-document.addEventListener("DOMContentLoaded", function () {
-    // Track URL from SoundCloud
-    const trackURL = "https://soundcloud.com/rick-astley-official/never-gonna-give-you-up-4";  // Replace with any valid SoundCloud track URL
+ // Function to create and load the SoundCloud player
+ function loadSoundCloudPlayer(trackUrl) {
+    // Create the iframe element dynamically
+    const iframe = document.createElement('iframe');
+    iframe.width = "100%";
+    iframe.height = "166";
+    iframe.scrolling = "no";
+    iframe.frameborder = "no";
+    iframe.src = `https://w.soundcloud.com/player/?url=${encodeURIComponent(trackUrl)}&color=ff5500&auto_play=true&hide_related=true&show_comments=false&show_user=true&show_reposts=false`;
+    
+    // Insert the iframe into the player container
+    const container = document.getElementById('player-container');
+    container.innerHTML = ''; // Clear any existing content
+    container.appendChild(iframe);
 
-    // Create the SoundCloud player in the div with id "player"
-    const playerElement = document.getElementById('player');
-    const widget = SC.Widget(playerElement);
+    // Create the widget instance for control
+    var widget = SC.Widget(iframe);
 
-    // Load the track and start playback
-    function loadAndPlayTrack() {
-        widget.load(trackURL, {
-            auto_play: true,
-            visual: true
-        });
+    // Play the track and stop after 5 seconds
+    widget.bind(SC.Widget.Events.READY, function() {
+      widget.play(); // Start playing
 
-        // Play the track for 5 seconds, then stop
-        setTimeout(() => {
-            widget.pause();
-        }, 5000);  // 5000ms = 5 seconds
-    }
+      setTimeout(function() {
+        widget.pause(); // Pause after 5 seconds
+      }, 5000); // 5000 ms = 5 seconds
+    });
+  }
 
-    // Initialize and play the track
-    loadAndPlayTrack();
-});
+  // Example: Choose a track dynamically and load it
+  const trackUrl = "https://soundcloud.com/rick-astley-official/never-gonna-give-you-up-4"; // Replace with the desired track URL
+  loadSoundCloudPlayer(trackUrl);
