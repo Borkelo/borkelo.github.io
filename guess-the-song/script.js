@@ -56,6 +56,9 @@ function endGame(){
 }
 
 async function playAudio() {
+    if (!widget) {
+        return;
+    }
     
     let isPaused = await new Promise(resolve => {
         widget.isPaused(function(paused) {
