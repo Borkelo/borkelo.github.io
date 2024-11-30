@@ -106,6 +106,7 @@ function guessSong(){
 
     currentIndex += 1;
     durationDisplay.textContent = durations[currentIndex] + " s";
+    inputText.value = "";
 }
 
 
