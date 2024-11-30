@@ -23,25 +23,30 @@ function setup(){
     iframe = document.getElementById('trackIframe');
     trackId = "1964742191";
     iframe.src = `https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${trackId}&amp;show_artwork=false`;
-    widget = SC.Widget(iframe);
-    song = chooseSong();
-    answer = song.replace(/_/g, ' ').replace(/\.mp3$/, '');
 
-    fuse = new Fuse([answer.toLowerCase()], {
-        includeScore: true,
-        threshold: 0.5,
-        distance: 10,
-        minMatchCharLength: 3
-    });
+    iframe.onload = function(){
+        widget = SC.Widget(iframe);
+        song = chooseSong();
+        answer = song.replace(/_/g, ' ').replace(/\.mp3$/, '');
 
-    durationDisplay.textContent = durations[currentIndex] + " s";
+        fuse = new Fuse([answer.toLowerCase()], {
+            includeScore: true,
+            threshold: 0.5,
+            distance: 10,
+            minMatchCharLength: 3
+        });
+
+        durationDisplay.textContent = durations[currentIndex] + " s";
+        
+        console.log("hi");
+        widget.getDuration(function(duration) {
+            let durationInSeconds = duration / 1000;       
+            console.log("Duration:", durationInSeconds);
+            randomStart = Math.random() * (durationInSeconds - 15);
+        });
+    }
+
     
-    console.log("hi");
-    widget.getDuration(function(duration) {
-        let durationInSeconds = duration / 1000;       
-        console.log("Duration:", durationInSeconds);
-        randomStart = Math.random() * (durationInSeconds - 15);
-    });
 }
 
 function chooseSong(){
