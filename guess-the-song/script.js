@@ -5,6 +5,8 @@ const inputText = document.getElementById('input');
 const correctAnswerText = document.getElementById('correctAnswerText');
 const durationDisplay = document.getElementById('durationDisplay');
 
+
+var widget;
 const durations = [0.1, 0.5, 2, 4, 8, 15]
 let currentIndex = 0;
 
@@ -13,13 +15,16 @@ let answer;
 let fuse;
 let gameover = false;
 
-const files = [
-
+const songs = [
+    "1964742191"
 ];
 
 function setup(){
+    iframe = document.getElementById('trackIframe');
+    trackId = "1964742191";
+    iframe.src = `https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${trackId}&amp;show_artwork=false`;
+    widget = SC.Widget(iframe);
     song = chooseSong();
-    audioPlayer.src = 'songs/' + song;
     answer = song.replace(/_/g, ' ').replace(/\.mp3$/, '');
     console.log(answer);
 
@@ -28,18 +33,24 @@ function setup(){
         threshold: 0.5,
         distance: 10,
         minMatchCharLength: 3
-      });
+    });
 
     durationDisplay.textContent = durations[currentIndex] + " s";
     
-    audioPlayer.onloadedmetadata = function() {
-        let duration = audioPlayer.duration;
-        randomStart = Math.random() * (duration - 15);
-    };   
+    let durationInSeconds;
+
+    widget.bind(SC.Widget.Events.READY, function() {
+        player.getDuration(function(duration) {
+          durationInSeconds = duration / 1000;
+        });
+      });
+
+    console.log(durationInSeconds);
+    randomStart = Math.random() * (duration - 15);
 }
 
 function chooseSong(){
-    return files[Math.floor(Math.random() * files.length)];
+    return songs[Math.floor(Math.random() * files.length)];
 }
 
 function endGame(){
@@ -50,6 +61,8 @@ function endGame(){
 }
 
 function playAudio() {
+    widget.play();
+
     if(!audioPlayer.paused || gameover){
         return;
     }

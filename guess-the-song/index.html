@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+  <script src="https://w.soundcloud.com/player/api.js"></script>
 </head>
 <body>
   <a class="home-button" href="../">Home</a>
@@ -21,8 +22,10 @@
     <button id="guessButton">GUESS</button>
     <p id="correctAnswerText"></p>
   </div>
-
-  <audio id="audioplayer"></audio>
+  
+  <iframe id="trackIframe" width="0" height="0" scrolling="no" frameborder="no" allow="autoplay"
+      src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/5&amp;show_artwork=false">
+  </iframe>
   <script src="script.js"></script>
   
 </body>
