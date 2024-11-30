@@ -5,7 +5,6 @@ const inputText = document.getElementById('input');
 const correctAnswerText = document.getElementById('correctAnswerText');
 const durationDisplay = document.getElementById('durationDisplay');
 
-playButton.disabled = true;
 var widget;
 const durations = [0.1, 0.5, 2, 4, 8, 15]
 let currentIndex = 0;
@@ -109,12 +108,6 @@ function guessSong(){
 
 
 setup();
-
-window.addEventListener('load', function() {
-    setTimeout(function() {
-        playButton.disabled = false;
-    }, 1000);
-});
 
 playButton.addEventListener('click', playAudio);
 guessButton.addEventListener('click', guessSong)
