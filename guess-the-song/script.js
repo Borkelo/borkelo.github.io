@@ -36,14 +36,12 @@ function setup(){
 
     durationDisplay.textContent = durations[currentIndex] + " s";
     
-    let durationInSeconds;
 
     widget.getDuration(function(duration) {
-        durationInSeconds = duration / 1000;
+        let durationInSeconds = duration / 1000;       
+        console.log("Duration:", durationInSeconds);
+        randomStart = Math.random() * (durationInSeconds - 15);
     });
-    console.log("A");
-    console.log(durationInSeconds);
-    randomStart = Math.random() * (durationInSeconds - 15);
 }
 
 function chooseSong(){
