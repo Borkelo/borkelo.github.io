@@ -36,7 +36,7 @@ function setup(){
 
     durationDisplay.textContent = durations[currentIndex] + " s";
     
-
+    console.log("hi");
     widget.getDuration(function(duration) {
         let durationInSeconds = duration / 1000;       
         console.log("Duration:", durationInSeconds);
