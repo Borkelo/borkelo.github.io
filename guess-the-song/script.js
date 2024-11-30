@@ -73,7 +73,6 @@ async function playAudio() {
     if (!widget || gameover) {
         return;
     }
-    playButton.disabled = true;
 
     let isPaused = await new Promise(resolve => {
         widget.isPaused(function(paused) {
@@ -93,7 +92,6 @@ async function playAudio() {
         if(!gameover){
             widget.pause();
         }
-        playButton.disabled = false;   
     }, durations[currentIndex] * 1000);
 }
 
