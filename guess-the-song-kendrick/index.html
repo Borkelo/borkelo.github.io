@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guess The Song</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../global.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+  <script src="https://w.soundcloud.com/player/api.js"></script>
+</head>
+<body>
+  <a class="home-button" href="../">Home</a>
+  <div class="container">
+    <h1>Guess The Song</h1>
+    <button id="playButton">PLAY</button>
+    <p id="durationDisplay"></p>
+    <input id="input" type="text" class="text-box" placeholder="Guess the song">
+    <button id="guessButton">GUESS</button>
+    <p id="correctAnswerText"></p>
+  </div>
+  
+  <iframe id="trackIframe" width="0" height="0" scrolling="no" frameborder="no" allow="autoplay"
+      src="">
+  </iframe>
+  <script src="script.js"></script>
+  
+</body>
+</html>
