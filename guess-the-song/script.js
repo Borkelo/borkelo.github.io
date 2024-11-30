@@ -47,6 +47,9 @@ function setup(){
             let durationInSeconds = duration / 1000;
             console.log("Duration:", durationInSeconds);
             randomStart = Math.random() * (durationInSeconds - durations[durations.length - 1]);
+            if(randomStart < 0){
+                randomStart = 0;
+            }
         });
     });    
 }
