@@ -56,10 +56,12 @@ function endGame(){
     correctAnswerText.textContent = answer;
 }
 
-function playAudio() {
-    let isPaused = false;
-    widget.isPaused(function(paused) {
-        isPaused = paused; 
+async function playAudio() {
+    
+    let isPaused = await new Promise(resolve => {
+        widget.isPaused(function(paused) {
+            resolve(paused);
+        });
     });
 
     if(!isPaused|| gameover){
