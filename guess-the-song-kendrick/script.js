@@ -19,6 +19,17 @@ let gameover = false;
 //Om sång int är gratis spelar den alltid från början
 const songs = [
     { id: "1964742191", name: "wacced out murals" },
+    { id: "1964742195", name: "squabble up" },
+    { id: "1964742199", name: "luther" },
+    { id: "1964742203", name: "man at the garden" },
+    { id: "1964742207", name: "hey now" },
+    { id: "1964742211", name: "reincarnated" },
+    { id: "1964742215", name: "tv off" },
+    { id: "1964742219", name: "dodger blue" },
+    { id: "1964742227", name: "peekaboo" },
+    { id: "1964742243", name: "heart pt. 6" },
+    { id: "1964742247", name: "gnx" },
+    { id: "1964742251", name: "gloria" },
 ];
 
 function setup(){
