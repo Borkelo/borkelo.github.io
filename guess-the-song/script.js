@@ -42,7 +42,7 @@ function setup(){
         widget.getDuration(function(duration) {
             let durationInSeconds = duration / 1000;
             console.log("Duration:", durationInSeconds);
-            randomStart = Math.random() * (durationInSeconds - 15);
+            randomStart = Math.random() * (durationInSeconds - 25);
         });
     });    
 }
