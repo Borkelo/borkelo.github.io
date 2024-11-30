@@ -50,8 +50,8 @@ function setup(){
 
 function endGame(){
     gameover = true;
-    audioPlayer.currentTime = 0;
-    audioPlayer.play();
+    widget.seekTo(0);
+    widget.play();
     correctAnswerText.textContent = answer;
 }
 
