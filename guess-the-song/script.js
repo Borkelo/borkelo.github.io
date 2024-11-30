@@ -16,7 +16,7 @@ let gameover = false;
 
 const songs = [
     { id: "1242868615", name: "Never Gonna Give You Up" },
-    { id: "1911328379", name: "GNX" },
+    { id: "1911328379", name: "GNX" }
 ];
 
 function setup(){
@@ -24,6 +24,7 @@ function setup(){
     let randomSong = songs[Math.floor(Math.random() * songs.length)];
     let trackId = randomSong.id;
     answer = randomSong.name;
+    console.log(trackId);
 
     iframe.src = `https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${trackId}&amp;show_artwork=false`;
     widget = SC.Widget(iframe);
