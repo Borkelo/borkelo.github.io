@@ -26,7 +26,6 @@ function setup(){
     widget = SC.Widget(iframe);
     song = chooseSong();
     answer = song.replace(/_/g, ' ').replace(/\.mp3$/, '');
-    console.log(answer);
 
     fuse = new Fuse([answer.toLowerCase()], {
         includeScore: true,
@@ -39,14 +38,12 @@ function setup(){
     
     let durationInSeconds;
 
-    widget.bind(SC.Widget.Events.READY, function() {
-        widget.getDuration(function(duration) {
-          durationInSeconds = duration / 1000;
-        });
-      });
+    widget.getDuration(function(duration) {
+        durationInSeconds = duration / 1000;
+    });
 
     console.log(durationInSeconds);
-    randomStart = Math.random() * (duration - 15);
+    randomStart = Math.random() * (durationInSeconds - 15);
 }
 
 function chooseSong(){
