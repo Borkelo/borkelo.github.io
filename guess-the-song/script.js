@@ -4,7 +4,6 @@ const guessButton = document.getElementById('guessButton');
 const inputText = document.getElementById('input');
 const correctAnswerText = document.getElementById('correctAnswerText');
 const durationDisplay = document.getElementById('durationDisplay');
-const fs = require('fs');
 
 var widget;
 const durations = [0.5, 2, 4, 8, 15, 25]
