@@ -4,6 +4,7 @@ const guessButton = document.getElementById('guessButton');
 const inputText = document.getElementById('input');
 const correctAnswerText = document.getElementById('correctAnswerText');
 const durationDisplay = document.getElementById('durationDisplay');
+const fs = require('fs');
 
 var widget;
 const durations = [0.5, 2, 4, 8, 15, 25]
@@ -15,16 +16,18 @@ let fuse;
 let gameover = false;
 
 const songs = [
-    "1964742191"
+    { id: "1242868615", name: "Never Gonna Give You Up" },
+    { id: "1911328379", name: "GNX" },
 ];
 
 function setup(){
     iframe = document.getElementById('trackIframe');
-    trackId = "1964742191";
+    let randomSong = songs[Math.floor(Math.random() * songs.length)];
+    let trackId = randomSong.id;
+    answer = randomSong.name;
+
     iframe.src = `https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${trackId}&amp;show_artwork=false`;
     widget = SC.Widget(iframe);
-    song = chooseSong();
-    answer = song.replace(/_/g, ' ').replace(/\.mp3$/, '');
 
     fuse = new Fuse([answer.trim().toLowerCase()], {
         includeScore: true,
@@ -44,9 +47,6 @@ function setup(){
     });    
 }
 
-function chooseSong(){
-    return songs[Math.floor(Math.random() * songs.length)];
-}
 
 function endGame(){
     gameover = true;
@@ -56,7 +56,7 @@ function endGame(){
 }
 
 async function playAudio() {
-    if (!widget) {
+    if (!widget || gameover) {
         return;
     }
 
@@ -66,7 +66,7 @@ async function playAudio() {
         });
     });
 
-    if(!isPaused|| gameover){
+    if(!isPaused){
         return;
     }
     
