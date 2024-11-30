@@ -14,18 +14,7 @@ let fuse;
 let gameover = false;
 
 const files = [
-    'dodger_blue.mp3',
-    'gloria.mp3',
-    'gnx.mp3',
-    'heart_pt._6.mp3',
-    'hey_now.mp3',
-    'luther.mp3',
-    'man_at_the_garden.mp3',
-    'peekaboo.mp3',
-    'reincarnated.mp3',
-    'squabble_up.mp3',
-    'tv_off.mp3',
-    'wacced_out_murals.mp3'
+
 ];
 
 function setup(){
@@ -34,7 +23,7 @@ function setup(){
     answer = song.replace(/_/g, ' ').replace(/\.mp3$/, '');
     console.log(answer);
 
-    fuse = new Fuse([answer], {
+    fuse = new Fuse([answer.toLowerCase()], {
         includeScore: true,
         threshold: 0.5,
         distance: 10,
