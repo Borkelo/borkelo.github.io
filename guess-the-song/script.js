@@ -26,7 +26,7 @@ function setup(){
     song = chooseSong();
     answer = song.replace(/_/g, ' ').replace(/\.mp3$/, '');
 
-    fuse = new Fuse([answer.toLowerCase().strip()], {
+    fuse = new Fuse([answer.trim().toLowerCase()], {
         includeScore: true,
         threshold: 0.5,
         distance: 10,
@@ -59,7 +59,7 @@ async function playAudio() {
     if (!widget) {
         return;
     }
-    
+
     let isPaused = await new Promise(resolve => {
         widget.isPaused(function(paused) {
             resolve(paused);
