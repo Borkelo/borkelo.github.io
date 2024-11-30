@@ -40,7 +40,7 @@ function setup(){
     let durationInSeconds;
 
     widget.bind(SC.Widget.Events.READY, function() {
-        player.getDuration(function(duration) {
+        widget.getDuration(function(duration) {
           durationInSeconds = duration / 1000;
         });
       });
@@ -62,6 +62,7 @@ function endGame(){
 
 function playAudio() {
     widget.play();
+    return;
 
     if(!audioPlayer.paused || gameover){
         return;
