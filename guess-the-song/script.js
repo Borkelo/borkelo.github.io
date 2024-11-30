@@ -50,7 +50,7 @@ function setup(){
 }
 
 function chooseSong(){
-    return songs[Math.floor(Math.random() * files.length)];
+    return songs[Math.floor(Math.random() * songs.length)];
 }
 
 function endGame(){
