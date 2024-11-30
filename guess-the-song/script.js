@@ -41,7 +41,7 @@ function setup(){
     widget.getDuration(function(duration) {
         durationInSeconds = duration / 1000;
     });
-
+    console.log("A");
     console.log(durationInSeconds);
     randomStart = Math.random() * (durationInSeconds - 15);
 }
