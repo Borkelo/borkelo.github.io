@@ -61,6 +61,11 @@ function endGame(){
 }
 
 function playAudio() {
+    widget.getDuration(function(duration) {
+        let durationInSeconds = duration / 1000;       
+        console.log("Duration:", durationInSeconds);
+        randomStart = Math.random() * (durationInSeconds - 15);
+    });
     widget.play();
     return;
 
