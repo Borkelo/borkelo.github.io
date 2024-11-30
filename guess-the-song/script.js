@@ -16,6 +16,7 @@ let answer;
 let fuse;
 let gameover = false;
 
+//Om sång int är gratis spelar den alltid från början
 const songs = [
     { id: "1242868615", name: "Never Gonna Give You Up" },
     { id: "1964742191", name: "wacced out murals" },
