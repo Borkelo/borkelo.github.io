@@ -5,7 +5,7 @@ const inputText = document.getElementById('input');
 const correctAnswerText = document.getElementById('correctAnswerText');
 const durationDisplay = document.getElementById('durationDisplay');
 
-
+playButton.disabled = true;
 var widget;
 const durations = [0.1, 0.5, 2, 4, 8, 15]
 let currentIndex = 0;
@@ -27,7 +27,7 @@ function setup(){
     song = chooseSong();
     answer = song.replace(/_/g, ' ').replace(/\.mp3$/, '');
 
-    fuse = new Fuse([answer.toLowerCase()], {
+    fuse = new Fuse([answer.toLowerCase().strip()], {
         includeScore: true,
         threshold: 0.5,
         distance: 10,
@@ -42,6 +42,9 @@ function setup(){
             console.log("Duration:", durationInSeconds);
             randomStart = Math.random() * (durationInSeconds - 15);
         });
+
+        widget.play();
+        widget.pause();
     });    
 }
 
@@ -109,5 +112,12 @@ function guessSong(){
 
 
 setup();
+
+window.addEventListener('load', function() {
+    setTimeout(function() {
+        playButton.disabled = false;
+    }, 1000);
+});
+
 playButton.addEventListener('click', playAudio);
 guessButton.addEventListener('click', guessSong)
