@@ -51,11 +51,18 @@ function setup(){
 }
 
 
-function endGame(){
+function endGame(win){
     gameover = true;
     widget.seekTo(0);
     widget.play();
     correctAnswerText.textContent = answer;
+
+    if(win){
+        durationDisplay.textContent = "You win!";
+    }
+    else{
+        durationDisplay.textContent = "You lose!"
+    }
 }
 
 async function playAudio() {
@@ -100,12 +107,12 @@ function guessSong(){
     }
 
     if(checkText(inputText.value)){
-        endGame();
+        endGame(true);
         return;
     }
 
     if(currentIndex === durations.length - 1){
-        endGame();
+        endGame(false);
         return;
     }
 
