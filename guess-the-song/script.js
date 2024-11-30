@@ -75,7 +75,9 @@ async function playAudio() {
 
 
     setTimeout(() => {
-        widget.pause();
+        if(!gameover){
+            widget.pause();
+        }      
     }, durations[currentIndex] * 1000);
 }
 
