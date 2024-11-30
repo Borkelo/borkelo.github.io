@@ -7,6 +7,8 @@ const durationDisplay = document.getElementById('durationDisplay');
 
 var widget;
 const durations = [0.5, 2, 4, 8, 15, 25]
+const guessTreshold = 0.5;
+
 let currentIndex = 0;
 
 let randomStart;
@@ -31,7 +33,7 @@ function setup(){
 
     fuse = new Fuse([answer.trim().toLowerCase()], {
         includeScore: true,
-        threshold: 0.5,
+        threshold: guessTreshold,
         distance: 10,
         minMatchCharLength: 3
     });     
@@ -42,7 +44,7 @@ function setup(){
         widget.getDuration(function(duration) {
             let durationInSeconds = duration / 1000;
             console.log("Duration:", durationInSeconds);
-            randomStart = Math.random() * (durationInSeconds - 25);
+            randomStart = Math.random() * (durationInSeconds - durations[durations.length - 1]);
         });
     });    
 }
@@ -85,7 +87,7 @@ function checkText(text) {
     text = text.trim().toLowerCase();
     let result = fuse.search(text);
   
-    if (result.length > 0 && result[0].score < 0.5) {
+    if (result.length > 0 && result[0].score < guessTreshold) {
       return true;
     }
     return false;    
@@ -101,7 +103,7 @@ function guessSong(){
         return;
     }
 
-    if(currentIndex === 5){
+    if(currentIndex === durations.length - 1){
         endGame();
         return;
     }
