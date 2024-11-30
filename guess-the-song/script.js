@@ -42,9 +42,6 @@ function setup(){
             console.log("Duration:", durationInSeconds);
             randomStart = Math.random() * (durationInSeconds - 15);
         });
-
-        widget.play();
-        widget.pause();
     });    
 }
 
