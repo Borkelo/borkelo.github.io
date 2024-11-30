@@ -18,7 +18,8 @@ let gameover = false;
 
 const songs = [
     { id: "1242868615", name: "Never Gonna Give You Up" },
-    { id: "1964742191", name: "wacced out murals" }
+    { id: "1964742191", name: "wacced out murals" },
+    { id: "1069042870", name: "Enter Sandman" },
 ];
 
 function setup(){
