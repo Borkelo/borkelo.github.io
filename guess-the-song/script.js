@@ -23,33 +23,26 @@ function setup(){
     iframe = document.getElementById('trackIframe');
     trackId = "1964742191";
     iframe.src = `https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${trackId}&amp;show_artwork=false`;
+    widget = SC.Widget(iframe);
+    song = chooseSong();
+    answer = song.replace(/_/g, ' ').replace(/\.mp3$/, '');
 
-    iframe.onload = function(){
-        widget = SC.Widget(iframe);
-        song = chooseSong();
-        answer = song.replace(/_/g, ' ').replace(/\.mp3$/, '');
+    fuse = new Fuse([answer.toLowerCase()], {
+        includeScore: true,
+        threshold: 0.5,
+        distance: 10,
+        minMatchCharLength: 3
+    });     
 
-        fuse = new Fuse([answer.toLowerCase()], {
-            includeScore: true,
-            threshold: 0.5,
-            distance: 10,
-            minMatchCharLength: 3
-        });
+    durationDisplay.textContent = durations[currentIndex] + " s";
 
-        durationDisplay.textContent = durations[currentIndex] + " s";
-        
-        console.log("hi");
-        widget.play();
-        widget.pause();
-
+    widget.bind(SC.Widget.Events.READY, function() {
         widget.getDuration(function(duration) {
-            let durationInSeconds = duration / 1000;       
+            let durationInSeconds = duration / 1000;
             console.log("Duration:", durationInSeconds);
             randomStart = Math.random() * (durationInSeconds - 15);
         });
-    }
-
-    
+    });    
 }
 
 function chooseSong(){
