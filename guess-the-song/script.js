@@ -57,23 +57,21 @@ function endGame(){
 }
 
 function playAudio() {
-    widget.getDuration(function(duration) {
-        let durationInSeconds = duration / 1000;       
-        console.log("Duration:", durationInSeconds);
-        randomStart = Math.random() * (durationInSeconds - 15);
+    let isPaused = false;
+    widget.isPaused(function(paused) {
+        isPaused = paused; 
     });
-    widget.play();
-    return;
 
-    if(!audioPlayer.paused || gameover){
+    if(!isPaused|| gameover){
         return;
     }
     
-    audioPlayer.currentTime = randomStart;   
-    audioPlayer.play();
+    widget.seekTo(randomStart * 1000);
+    widget.play();
+
 
     setTimeout(() => {
-        audioPlayer.pause();
+        widget.pause();
     }, durations[currentIndex] * 1000);
 }
 
