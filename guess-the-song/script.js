@@ -13,13 +13,32 @@ let answer;
 let fuse;
 let gameover = false;
 
+const files = [
+    'dodger_blue.mp3',
+    'gloria.mp3',
+    'gnx.mp3',
+    'heart_pt._6.mp3',
+    'hey_now.mp3',
+    'luther.mp3',
+    'man_at_the_garden.mp3',
+    'peekaboo.mp3',
+    'reincarnated.mp3',
+    'squabble_up.mp3',
+    'tv_off.mp3',
+    'wacced_out_murals.mp3'
+];
+
 function setup(){
-    audioPlayer.src = 'songs/Never_Gonna_Give_You_Up.mp3';
-    
-    answer = "never gonna give you up";
+    song = chooseSong();
+    audioPlayer.src = 'songs/' + song;
+    answer = song.replace(/_/g, ' ').replace(/\.mp3$/, '');
+    console.log(answer);
+
     fuse = new Fuse([answer], {
         includeScore: true,
         threshold: 0.5,
+        distance: 10,
+        minMatchCharLength: 3
       });
 
     durationDisplay.textContent = durations[currentIndex] + " s";
@@ -28,6 +47,10 @@ function setup(){
         let duration = audioPlayer.duration;
         randomStart = Math.random() * (duration - 15);
     };   
+}
+
+function chooseSong(){
+    return files[Math.floor(Math.random() * files.length)];
 }
 
 function endGame(){
