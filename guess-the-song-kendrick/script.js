@@ -93,7 +93,7 @@ const songs = [
     { id: "252602224", name: "Money Trees" },
     { id: "252602774", name: "Poetic Justice" },
     { id: "252602143", name: "good kid" },
-    { id: "252602913", name: "m.A.A.d city" },
+    { id: "252602913", name: "mAAd city" },
     { id: "252603088", name: "Swimming Pools" },
     { id: "252602454", name: "Sing About Me, I'm Dying Of Thirst" },
     { id: "252602607", name: "Real" },
