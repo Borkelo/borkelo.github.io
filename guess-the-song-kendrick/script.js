@@ -7,7 +7,7 @@ const durationDisplay = document.getElementById('durationDisplay');
 
 var widget;
 const durations = [0.2, 0.5, 2, 4, 8, 15, 25]
-const guessTreshold = 0.3;
+const guessTreshold = 0.4;
 
 let currentIndex = 0;
 
