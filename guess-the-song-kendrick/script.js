@@ -6,7 +6,7 @@ const correctAnswerText = document.getElementById('correctAnswerText');
 const durationDisplay = document.getElementById('durationDisplay');
 
 var widget;
-const durations = [0.5, 2, 4, 8, 15, 25]
+const durations = [0.2, 0.5, 2, 4, 8, 15, 25]
 const guessTreshold = 0.3;
 
 let currentIndex = 0;
