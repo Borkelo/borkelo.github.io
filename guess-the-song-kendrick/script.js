@@ -30,6 +30,17 @@ const songs = [
     { id: "1964742243", name: "heart pt. 6" },
     { id: "1964742247", name: "gnx" },
     { id: "1964742251", name: "gloria" },
+    { id: "1267386499", name: "United In Grief" },
+    { id: "1267386892", name: "N95" },
+    { id: "1267390525", name: "Worldwide Steppers" },
+    { id: "1267387117", name: "Die Hard"},
+    { id: "1267389112", name: "Father Time" },
+    { id: "1267389283", name: "Rich (Interlude)" },
+    { id: "1267388605", name: "Rich Spirit" },
+    { id: "1267389442", name: "Savior (Interlude)" },
+    { id: "1267389535", name: "We Cry Together" },
+    { id: "1267388815", name: "Purple Hearts" },
+    { id: "1267389346", name: "Count Me Out" },
 ];
 
 function setup(){
