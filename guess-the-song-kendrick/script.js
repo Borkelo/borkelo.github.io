@@ -41,6 +41,13 @@ const songs = [
     { id: "1267389535", name: "We Cry Together" },
     { id: "1267388815", name: "Purple Hearts" },
     { id: "1267389346", name: "Count Me Out" },
+    { id: "1267387318", name: "Crown" },
+    { id: "1267388161", name: "Silent Hill" },
+    { id: "1267387534", name: "Savior" },
+    { id: "1267386175", name: "Auntie Diaries" },
+    { id: "1267388398", name: "Mr. Morale" },
+    { id: "1267389187", name: "Mother I Sober" },
+    { id: "1267387810", name: "Mirror" },
 ];
 
 function setup(){
