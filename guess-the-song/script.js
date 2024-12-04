@@ -6,7 +6,7 @@ const correctAnswerText = document.getElementById('correctAnswerText');
 const durationDisplay = document.getElementById('durationDisplay');
 
 var widget;
-const durations = [0.1, 0.2, 0.5, 2, 4, 8, 15]
+const durations = [0.2, 0.5, 2, 4, 8, 15]
 const guessTreshold = 0.3;
 
 let currentIndex = 0;
@@ -21,6 +21,8 @@ const songs = [
     { id: "1242868615", name: "Never Gonna Give You Up" },
     { id: "1964742191", name: "wacced out murals" },
     { id: "1069042870", name: "Enter Sandman" },
+    { id: "115417954", name: "Bohemian Rhapsody"},
+    { id: "1052634835", name: "Mask"},
 ];
 
 function setup(){
