@@ -23,6 +23,10 @@ const songs = [
     { id: "1069042870", name: "Enter Sandman" },
     { id: "115417954", name: "Bohemian Rhapsody"},
     { id: "1052634835", name: "Mask"},
+    { id: "133857724", name: "Stereo Madness"},
+    { id: "632659404", name: "Dance Monkey"},
+    { id: "140308121", name: "Subwoofer Lullaby"},
+    { id: "231447195", name: "On Melancholy Hill"},
 ];
 
 function setup(){
@@ -32,7 +36,7 @@ function setup(){
     answer = randomSong.name;
     console.log(trackId);
 
-    iframe.src = `https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${trackId}&amp;show_artwork=false`;
+    iframe.src = `https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${trackId}&amp`;
     widget = SC.Widget(iframe);
 
     fuse = new Fuse([answer.trim().toLowerCase()], {
