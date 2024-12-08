@@ -11,6 +11,7 @@ const guessTreshold = 0.3;
 
 let currentIndex = 0;
 
+let iframe;
 let randomStart;
 let answer;
 let fuse;
@@ -66,6 +67,8 @@ function endGame(win){
     widget.seekTo(0);
     widget.play();
     correctAnswerText.textContent = answer;
+    iframe.style.width = "800px";
+    iframe.style.height = "150px";
 
     if(win){
         durationDisplay.textContent = "You win!";
