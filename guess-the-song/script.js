@@ -29,6 +29,7 @@ const songs = [
     { id: "140308121", name: "Subwoofer Lullaby"},
     { id: "231447195", name: "On Melancholy Hill"},
     { id: "1318955086", name: "Water Island"},
+    { id: "236052115", name: "Advance Australia"},
 ];
 
 function setup(){
@@ -38,7 +39,7 @@ function setup(){
     answer = randomSong.name;
     console.log(trackId);
 
-    iframe.src = `https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${trackId}&amp`;
+    iframe.src = `https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${trackId}`;
     widget = SC.Widget(iframe);
 
     fuse = new Fuse([answer.trim().toLowerCase()], {
