@@ -28,6 +28,7 @@ const songs = [
     { id: "632659404", name: "Dance Monkey"},
     { id: "140308121", name: "Subwoofer Lullaby"},
     { id: "231447195", name: "On Melancholy Hill"},
+    { id: "1318955086", name: "Water Island"},
 ];
 
 function setup(){
