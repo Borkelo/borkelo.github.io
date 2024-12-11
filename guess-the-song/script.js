@@ -33,7 +33,7 @@ const songs = [
     { id: "269500252", name: "I CAN SWING MY SWORD"},
     { id: "336487243", name: "Tambursdraken"},
     { id: "336354256", name: "Traktor Alban"},
-    { id: "33635599", name: "Chili con carne"},
+    { id: "336355993", name: "Chili con carne"},
     { id: "336355274", name: "Kottar i karburatorn"},
     { id: "141336214", name: "Arne Alligator"},
 ];
