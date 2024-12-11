@@ -31,6 +31,11 @@ const songs = [
     { id: "1318955086", name: "Water Island"},
     { id: "236052115", name: "Advance Australia"},
     { id: "269500252", name: "I CAN SWING MY SWORD"},
+    { id: "336487243", name: "Tambursdraken"},
+    { id: "336354256", name: "Traktor Alban"},
+    { id: "33635599", name: "Chili con carne"},
+    { id: "336355274", name: "Kottar i karburatorn"},
+    { id: "141336214", name: "Arne Alligator"},
 ];
 
 function setup(){
